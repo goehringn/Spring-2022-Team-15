@@ -16,5 +16,5 @@ a better understanding of the problems you encountered during the developmemnt o
 - Anisha Beladia - Biomedical Engineering - Student Team Member
 - Mia Park - Computer Science - Student Team Member
 - Nathan Goehring - Computer Science - Student Team Member
-- *Student's Name* - *major* - Student Team Member
+- *Mason Delane* - *Computer Science* - Student Team Member
 - *Student's Name* - *major* - Student Team Member
