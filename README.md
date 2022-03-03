@@ -15,6 +15,6 @@ a better understanding of the problems you encountered during the developmemnt o
 ## Project Team
 - Anisha Beladia - Biomedical Engineering - Student Team Member
 - Mia Park - Computer Science - Student Team Member
-- *Student's Name* - *major* - Student Team Member
+- Nathan - Computer Science - Student Team Member
 - *Student's Name* - *major* - Student Team Member
 - *Student's Name* - *major* - Student Team Member
