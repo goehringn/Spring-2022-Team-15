@@ -1,17 +1,17 @@
-/*****************************************************************************************
- * TextBroker Class
- * ***************************************************************************************
- * Function:
- *          Retrieves information from text files for taxes, errors, or translations.
- * *--------------------------------------------------------------------------------------
- * @author Nathan Goehring
- * @version 04/12/2022   CMSC 355
+/****************************************************************************************
+ TextBroker Class
+ ***************************************************************************************
+ Function:
+ Retrieves information from text files for taxes, errors, or translations.
+ *--------------------------------------------------------------------------------------
+ @author Nathan Goehring
+ @version 04/12/2022   CMSC 355
  * ***************************************************************************************/
 
 import java.io.*;
 
 public class TB {
-    public static void main(String args[]) throws Exception {
+    public static void main(String[] args) throws Exception {
         /*if (args[0].equals("English")) {
             String line;
             File file = new File(
@@ -27,7 +27,10 @@ public class TB {
             }
 
         }*/
+        String srcpath = new File("src").getAbsolutePath();
         String[] b = args[0].split(",");
+        //System.out.println(b[0]);
+        //System.out.println(b[1]);
         String line;
         File file = new File(
                 "/Sprint-2/src/", b[0]);
@@ -35,7 +38,7 @@ public class TB {
         try {
             a = new BufferedReader(new FileReader(file));
         } catch (FileNotFoundException e) {
-            Process pb = new ProcessBuilder("java", "-jar", "/Sprint-2/src/stub1.jar", "404").start();
+            Process pb = new ProcessBuilder("java", "-jar", srcpath + "\\src\\modules\\stub1.jar", "404").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String output;
                 output = reader.readLine();
@@ -43,6 +46,7 @@ public class TB {
             }
             System.exit(0);
         }
+
         String j = b[0].substring(0, 4);
         try {
             Integer.parseInt(j);
@@ -54,7 +58,7 @@ public class TB {
                     System.exit(0);
                 }
             }
-            Process pb = new ProcessBuilder("java", "-jar", "/Sprint-2/src/stub1.jar", "813").start();
+            Process pb = new ProcessBuilder("java", "-jar", srcpath + "\\src\\modules\\stub1.jar", "813").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String output;
                 output = reader.readLine();
@@ -62,11 +66,12 @@ public class TB {
             }
             System.exit(0);
         }
+
         int userGross = 0;
         try {
             userGross = Integer.parseInt(b[1]);
         } catch (NumberFormatException e) {
-            Process pb = new ProcessBuilder("java", "-jar", "/Sprint-2/src/stub1.jar", "404").start();
+            Process pb = new ProcessBuilder("java", "-jar", srcpath + "\\src\\modules\\stub1.jar", "404").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String output;
                 output = reader.readLine();
@@ -75,7 +80,7 @@ public class TB {
             System.exit(0);
         }
         if (userGross <= 0) {
-            Process pb = new ProcessBuilder("java", "-jar", "/Sprint-2/src/stub1.jar", "404").start();
+            Process pb = new ProcessBuilder("java", "-jar", srcpath + "\\src\\modules\\stub1.jar", "404").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String output;
                 output = reader.readLine();
