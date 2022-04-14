@@ -9,6 +9,8 @@
  * ***************************************************************************************/
 
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 import java.io.*;
@@ -17,22 +19,18 @@ import java.util.*;
 
 public class SB {
     public static void main(String[] args) throws Exception {
-        //System.out.println(args[0]);
-        String[] n = args[0].split(",", 2);
-        //System.out.println(n[0]);
-        //System.out.println(n[1]);
+        String[] argsArray = args[0].split(",", 2);
         String line;
-        String srcpath = new File("src").getAbsolutePath();
-        File file = new File(
-                 srcpath + "\\textfiles\\Service.txt");
+        String srcpath = new File(".").getCanonicalPath();
+        File file = new File(srcpath + "/src/textfiles/Service.txt");
         BufferedReader a = new BufferedReader(new FileReader(file));
         while ((line = a.readLine()) != null) {
             String[] words = line.split(",");
-            if (n[0].equals(words[0])) {
+            if (argsArray[0].equals(words[0])) {
                 switch (words[0]) {
                     case "Trans" -> {
                         System.out.println("Trans");
-                        Process pb = new ProcessBuilder("java", "-jar", words[1], n[1]).start();
+                        Process pb = new ProcessBuilder("java", "-jar", srcpath+words[1], argsArray[1]).start();
                         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                             String l;
                             while ((l = reader.readLine()) != null) {
@@ -43,7 +41,7 @@ public class SB {
                     }
                     case "Tax" -> {
                         System.out.println("Tax");
-                        Process pb = new ProcessBuilder("java", "-jar", words[1], n[1]).start();
+                        Process pb = new ProcessBuilder("java", "-jar", srcpath+words[1], argsArray[1]).start();
                         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                             String l;
                             l = reader.readLine();
@@ -52,7 +50,8 @@ public class SB {
                         System.exit(0);
                     }
                     case "TB" -> {
-                        Process pb = new ProcessBuilder("java", "-jar", words[1], n[1]).start();
+                        //Process pb = new ProcessBuilder("java", "-jar", srcpath+words[1], argsArray[1]).start();
+                        Process pb = new ProcessBuilder("java", srcpath+"/src/modules/TB.java", argsArray[1]).start();
                         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                             String l;
                             l = reader.readLine();
@@ -62,7 +61,7 @@ public class SB {
                     }
                     case "Error" -> {
                         System.out.println(words[1]);
-                        Process pb = new ProcessBuilder("java", "-jar", words[1], "Error").start();
+                        Process pb = new ProcessBuilder("java", "-jar", srcpath + words[1], "Error").start();
                         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                             String l;
                             while ((l = reader.readLine()) != null) {
@@ -75,7 +74,7 @@ public class SB {
                 }
             }
         }
-        Process pb = new ProcessBuilder("java", "-jar", srcpath + "\\modules\\stub1.jar", "813").start();
+        Process pb = new ProcessBuilder("java", "-jar", srcpath + "/src/modules/stub1.jar", "813").start();
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
             String l;
             while ((l = reader.readLine()) != null) {

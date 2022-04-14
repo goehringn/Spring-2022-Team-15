@@ -12,28 +12,13 @@ import java.io.*;
 
 public class TB {
     public static void main(String[] args) throws Exception {
-        /*if (args[0].equals("English")) {
-            String line;
-            File file = new File(
-                    "C:\\Sprint2\\src\\main\\java\\Service.txt");
-            BufferedReader a = new BufferedReader(new FileReader(file));
-            while ((line = a.readLine()) != null) {
-                String[] words = line.split(",");
-                for (String word : words) {
-                    if (word.equals("Trans")) {
-                        System.out.println("The word was found");
-                    }
-                }
-            }
-
-        }*/
-        String srcpath = new File("src").getAbsolutePath();
+        String srcpath = new File(".").getCanonicalPath();
         String[] b = args[0].split(",");
         //System.out.println(b[0]);
         //System.out.println(b[1]);
         String line;
         File file = new File(
-                "/Sprint-2/src/", b[0]);
+                srcpath+ "/src/textfiles/" + b[0]);
         BufferedReader a = null;
         try {
             a = new BufferedReader(new FileReader(file));
