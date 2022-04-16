@@ -16,12 +16,12 @@ public class TB {
         String[] b = args[0].split(",");
         String line;
         File file = new File(
-                srcpath + "/src/textfiles/" + b[0]);
+                "src/textfiles/" + b[0]);
         BufferedReader a = null;
         try {
             a = new BufferedReader(new FileReader(file));
         } catch (FileNotFoundException e) {
-            Process pb = new ProcessBuilder("java", srcpath + "/src/modules/Error.java", "404").start();
+            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String output;
                 output = reader.readLine();
@@ -35,7 +35,7 @@ public class TB {
                 try {
                     userGross = Integer.parseInt(b[1]);
                 } catch (NumberFormatException e) {
-                    Process pb = new ProcessBuilder("java", srcpath + "/src/modules/Error.java", "404").start();
+                    Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
                     try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                         String output;
                         output = reader.readLine();
@@ -44,7 +44,7 @@ public class TB {
                     System.exit(0);
                 }
                 if (userGross <= 0) {
-                    Process pb = new ProcessBuilder("java", srcpath + "/src/modules/Error.java", "404").start();
+                    Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
                     try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                         String output;
                         output = reader.readLine();
@@ -76,7 +76,7 @@ public class TB {
                 System.exit(0);
             }
 
-            Process pb = new ProcessBuilder("java", srcpath + "/src/modules/Error.java", "813").start();
+            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "813").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String output;
                 output = reader.readLine();
