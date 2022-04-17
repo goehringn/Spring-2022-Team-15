@@ -36,7 +36,6 @@ public class SB {
             if (argsArray[0].equals(words[0])) {
                 switch (words[0]) {
                     case "Trans" -> {
-                        System.out.println("Trans");
                         Process pb = new ProcessBuilder("java", "src/modules/Trans.java", argsArray[1]).start();
                         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                             String l;
@@ -47,12 +46,12 @@ public class SB {
                         System.exit(0);
                     }
                     case "Tax" -> {
-                        System.out.println("Tax");
                         Process pb = new ProcessBuilder("java", "src/modules/Tax.java", argsArray[1]).start();
                         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                             String l;
-                            l = reader.readLine();
-                            System.out.println(l);
+                            while ((l = reader.readLine()) != null) {
+                                System.out.println(l);
+                            }
                         }
                         System.exit(0);
                     }
@@ -61,8 +60,9 @@ public class SB {
                         Process pb = new ProcessBuilder("java", "src/modules/TB.java", argsArray[1]).start();
                         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                             String l;
-                            l = reader.readLine();
-                            System.out.println(l);
+                            while ((l = reader.readLine()) != null) {
+                                System.out.println(l);
+                            }
                         }
                         System.exit(0);
                     }

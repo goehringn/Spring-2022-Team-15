@@ -12,7 +12,6 @@ import java.io.*;
 
 public class TB {
     public static void main(String[] args) throws Exception {
-        String srcpath = new File(".").getCanonicalPath();
         String[] b = args[0].split(",");
         String line;
         File file = new File(
@@ -23,9 +22,10 @@ public class TB {
         } catch (FileNotFoundException e) {
             Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
-                String output;
-                output = reader.readLine();
-                System.out.println(output);
+                String l;
+                while ((l = reader.readLine()) != null) {
+                    System.out.println(l);
+                }
             }
             System.exit(0);
         }
@@ -37,18 +37,20 @@ public class TB {
                 } catch (NumberFormatException e) {
                     Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
                     try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
-                        String output;
-                        output = reader.readLine();
-                        System.out.println(output);
+                        String l;
+                        while ((l = reader.readLine()) != null) {
+                            System.out.println(l);
+                        }
                     }
                     System.exit(0);
                 }
                 if (userGross <= 0) {
                     Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
                     try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
-                        String output;
-                        output = reader.readLine();
-                        System.out.println(output);
+                        String l;
+                        while ((l = reader.readLine()) != null) {
+                            System.out.println(l);
+                        }
                     }
                     System.exit(0);
                 }
@@ -78,9 +80,10 @@ public class TB {
 
             Process pb = new ProcessBuilder("java", "src/modules/Error.java", "813").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
-                String output;
-                output = reader.readLine();
-                System.out.println(output);
+                String l;
+                while ((l = reader.readLine()) != null) {
+                    System.out.println(l);
+                }
             }
             System.exit(0);
         }
