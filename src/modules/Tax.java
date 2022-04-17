@@ -19,10 +19,10 @@ public class Tax {
             String l;
             while ((l = reader.readLine()) != null) {
                 System.out.println(l);
+                float percentage = Float.parseFloat(l);
+                float taxes = userGross * percentage;
+                System.out.print(taxes);
             }
-//            float percentage = Float.parseFloat(l);
-//            float taxes = userGross * percentage;
-//            System.out.print(taxes);`
         }
     }
 }
