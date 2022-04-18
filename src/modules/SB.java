@@ -14,12 +14,20 @@ import java.io.*;
 
 public class SB {
     public static void main(String[] args) throws Exception {
-        String srcpath = new File(".").getCanonicalPath();
+        if(args.length == 0){
+            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
+            try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
+                String l;
+                while ((l = reader.readLine()) != null) {
+                    System.out.println(l);
+                }
+            }
+        }
         String[] argsArray = new String[0];
         try {
             argsArray = args[0].split(",", 2);
         }catch(Exception e){
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "400").start();
+            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
                 while ((l = reader.readLine()) != null) {
