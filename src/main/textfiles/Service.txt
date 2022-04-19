@@ -1,4 +1,4 @@
-Trans,"java -jar stub1.jar"
-Tax,"java -jar stub2.jar"
-Error,"./src/main/java/Error.jar"
-TB,"/Sprint-2/src/TB.jar"
+Trans,src/modules/Trans.java
+Tax,src/modules/Tax.java
+Error,src/modules/Error.java
+TB,src/modules/TB.java
