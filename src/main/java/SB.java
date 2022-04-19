@@ -22,6 +22,7 @@ public class SB {
                     System.out.println(l);
                 }
             }
+            System.exit(0);
         }
         String[] argsArray = new String[0];
         try {
