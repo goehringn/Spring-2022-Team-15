@@ -21,7 +21,7 @@ public class Tax {
             case "Joint" -> type = "J";
             case "Head" -> type = "H";
             default -> {
-                Process pb = new ProcessBuilder("java", "src/modules/Error.java", "876").start();
+                Process pb = new ProcessBuilder("java", "src/main/java/Error.java", "876").start();
                 try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                     String l;
                     while ((l = reader.readLine()) != null) {
@@ -34,7 +34,7 @@ public class Tax {
         }
         String filer = year + type + ".txt";
         String set = "TB" + "," + filer + "," + userGross + "," + "<=";
-        Process pb = new ProcessBuilder("java", "src/modules/SB.java", set).start();
+        Process pb = new ProcessBuilder("java", "src/main/java/SB.java", set).start();
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
             String l;
             while ((l = reader.readLine()) != null) {

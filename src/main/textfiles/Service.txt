@@ -1,4 +1,4 @@
-Trans,src/modules/Trans.java
-Tax,src/modules/Tax.java
-Error,src/modules/Error.java
-TB,src/modules/TB.java
+Trans,src/main/java/Trans.java
+Tax,src/main/java/Tax.java
+Error,src/main/java/Error.java
+TB,src/main/java/TB.java

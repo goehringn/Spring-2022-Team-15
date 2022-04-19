@@ -15,13 +15,13 @@ public class TB {
         String[] b = args[0].split(",");
         String line;
         File file = new File(
-                "src/textfiles/" + b[0]);
+                "src/main/textfiles/" + b[0]);
         BufferedReader a = null;
         if (b.length > 2) {
             try {
                 a = new BufferedReader(new FileReader(file));
             } catch (FileNotFoundException e) {
-                Process pb = new ProcessBuilder("java", "src/modules/Error.java", "903").start();
+                Process pb = new ProcessBuilder("java", "src/main/java/Error.java", "903").start();
                 try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                     String l;
                     while ((l = reader.readLine()) != null) {
@@ -35,7 +35,7 @@ public class TB {
                 try {
                     userGross = Integer.parseInt(b[1]);
                 } catch (NumberFormatException e) {
-                    Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
+                    Process pb = new ProcessBuilder("java", "src/main/java/Error.java", "404").start();
                     try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                         String l;
                         while ((l = reader.readLine()) != null) {
@@ -45,7 +45,7 @@ public class TB {
                     System.exit(0);
                 }
                 if (userGross <= 0) {
-                    Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
+                    Process pb = new ProcessBuilder("java", "src/main/java/Error.java", "404").start();
                     try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                         String l;
                         while ((l = reader.readLine()) != null) {
@@ -73,7 +73,7 @@ public class TB {
         try {
             a = new BufferedReader(new FileReader(file));
         } catch (FileNotFoundException e) {
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "805").start();
+            Process pb = new ProcessBuilder("java", "src/main/java/Error.java", "805").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
                 while ((l = reader.readLine()) != null) {
@@ -89,7 +89,7 @@ public class TB {
                 System.exit(0);
             }
         }
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "813").start();
+            Process pb = new ProcessBuilder("java", "src/main/java/Error.java", "813").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
                 while ((l = reader.readLine()) != null) {

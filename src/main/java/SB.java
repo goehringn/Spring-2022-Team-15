@@ -15,7 +15,7 @@ import java.io.*;
 public class SB {
     public static void main(String[] args) throws Exception {
         if(args.length == 0){
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
+            Process pb = new ProcessBuilder("java", "src/main/java/Error.java", "404").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
                 while ((l = reader.readLine()) != null) {
@@ -27,7 +27,7 @@ public class SB {
         try {
             argsArray = args[0].split(",", 2);
         }catch(Exception e){
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
+            Process pb = new ProcessBuilder("java", "src/main/java/Error.java", "404").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
                 while ((l = reader.readLine()) != null) {
@@ -37,7 +37,7 @@ public class SB {
             System.exit(0);
         }
         String line;
-        File file = new File("src/textfiles/Service.txt");
+        File file = new File("src/main/textfiles/Service.txt");
         BufferedReader a = new BufferedReader(new FileReader(file));
         while ((line = a.readLine()) != null) {
             String[] words = line.split(",",2);
@@ -52,7 +52,7 @@ public class SB {
                 System.exit(0);
             }
         }
-        Process pb = new ProcessBuilder("java", "src/modules/Error.java", "703").start();
+        Process pb = new ProcessBuilder("java", "src/main/java/Error.java", "703").start();
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
             String l;
             while ((l = reader.readLine()) != null) {

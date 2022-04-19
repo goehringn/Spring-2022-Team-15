@@ -39,7 +39,7 @@ public class Error {
         // format arguments for calling SB
         set = "TB" + "," + filer + "," +  code;
         // call SB using service-oriented call
-        Process pb = new ProcessBuilder("java", "src/modules/SB.java", set).start();
+        Process pb = new ProcessBuilder("java", "src/main/java/SB.java", set).start();
         // read input from pb
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
             while ((line = reader.readLine()) != null) {
