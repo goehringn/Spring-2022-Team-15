@@ -5,7 +5,7 @@
  Retrieves information from text files for taxes, errors, or translations.
  *--------------------------------------------------------------------------------------
  @author Nathan Goehring
- @version 04/12/2022   CMSC 355
+ @version 04/19/2022   CMSC 355
   * ***************************************************************************************/
 
 import java.io.*;
@@ -17,19 +17,19 @@ public class TB {
         File file = new File(
                 "src/textfiles/" + b[0]);
         BufferedReader a = null;
-        try {
-            a = new BufferedReader(new FileReader(file));
-        } catch (FileNotFoundException e) {
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
-            try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
-                String l;
-                while ((l = reader.readLine()) != null) {
-                    System.out.println(l);
-                }
-            }
-            System.exit(0);
-        }
         if (b.length > 2) {
+            try {
+                a = new BufferedReader(new FileReader(file));
+            } catch (FileNotFoundException e) {
+                Process pb = new ProcessBuilder("java", "src/modules/Error.java", "903").start();
+                try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
+                    String l;
+                    while ((l = reader.readLine()) != null) {
+                        System.out.println(l);
+                    }
+                }
+                System.exit(0);
+            }
             if (b[2].equals("<=")) {
                 int userGross = 0;
                 try {
@@ -70,7 +70,18 @@ public class TB {
                 }
             }
         }
-
+        try {
+            a = new BufferedReader(new FileReader(file));
+        } catch (FileNotFoundException e) {
+            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "805").start();
+            try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
+                String l;
+                while ((l = reader.readLine()) != null) {
+                    System.out.println(l);
+                }
+            }
+            System.exit(0);
+        }
         while ((line = a.readLine()) != null) {
             String[] words = line.split(",");
             if (words[0].equals(b[1])) {
