@@ -1,6 +1,0 @@
-#Gradle
-*.bin
-*.lock
-*.jar
-*.tar
-*.class
