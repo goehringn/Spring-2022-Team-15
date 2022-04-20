@@ -8,9 +8,10 @@
  @version 04/19/2022   CMSC 355
   * ***************************************************************************************/
 
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+
+
 
 public class Tax {
     public static void main(String[] args) throws Exception {
@@ -22,6 +23,17 @@ public class Tax {
             case "Single" -> type = "S";
             case "Joint" -> type = "J";
             case "Head" -> type = "H";
+            default -> {
+                Process pb = new ProcessBuilder("java", "src/modules/Error.java", "876").start();
+                try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
+                    String l;
+                    while ((l = reader.readLine()) != null) {
+                        System.out.println(l);
+                    }
+
+                }
+                System.exit(0);
+            }
         }
         String filer = year + type + ".txt";
         String set = "TB" + "," + filer + "," + userGross + "," + "<=";
