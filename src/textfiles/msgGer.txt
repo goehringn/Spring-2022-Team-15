@@ -1,0 +1,5 @@
+404,Nicht Gefunden
+703,Service Nicht Gefunden
+805,Sprache Nicht Gefunden
+813,Wort Nicht Gefunden
+903,Steuerjahr Nicht Gefunden
