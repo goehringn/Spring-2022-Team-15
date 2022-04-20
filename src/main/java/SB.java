@@ -37,6 +37,16 @@ public class SB {
             }
             System.exit(0);
         }
+        if(argsArray.length < 2){
+            Process pb = new ProcessBuilder("java", "src/main/java/Error.java", "404").start();
+            try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
+                String l;
+                while ((l = reader.readLine()) != null) {
+                    System.out.println(l);
+                }
+            }
+            System.exit(0);
+        }
         String line;
         File file = new File("src/main/textfiles/Service.txt");
         BufferedReader a = new BufferedReader(new FileReader(file));
