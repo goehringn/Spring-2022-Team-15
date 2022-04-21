@@ -18,15 +18,19 @@ import java.util.*;
 
 public class Error {
     public static void main(String[] args) throws Exception {
+        /*-------------------------------------------------------------
         //args will be Language,message-code
         //need to split args to get Language and then message code
+        *-------------------------------------------------------------*/
         String[] argsArray = args[0].split(",");
         String language;
         int code = 404;
         String filer = "msgEng.txt";
         String set;
         String line;
+        /*-------------------------------------------------------------
         // default language file to English if one is not provided
+        *-------------------------------------------------------------*/
         if (argsArray.length == 1) {
             code = Integer.parseInt(argsArray[0]);
         }
