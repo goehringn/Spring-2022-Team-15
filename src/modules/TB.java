@@ -19,7 +19,8 @@ public class TB {
         BufferedReader a = new BufferedReader(new FileReader(file));
         if (b.length > 2) {
             if (b[2].equals("<=")) {
-                int userGross = Integer.parseInt(b[1]);;
+                int userGross = Integer.parseInt(b[1]);
+                ;
                 while ((line = a.readLine()) != null) {
                     String[] words = line.split(",");
                     int incomeAmount = 0;
@@ -39,9 +40,9 @@ public class TB {
             }
         }
         line = a.readLine();
-        try{
+        try {
             Integer.parseInt(line);
-        }catch (Exception e){
+        } catch (Exception e) {
             Process pb = new ProcessBuilder("java", "src/modules/Error.java", "813").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
@@ -51,15 +52,15 @@ public class TB {
             }
             System.exit(0);
         }
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
-            try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
-                String l;
-                while ((l = reader.readLine()) != null) {
-                    System.out.println(l);
-                }
+        Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
+        try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
+            String l;
+            while ((l = reader.readLine()) != null) {
+                System.out.println(l);
             }
-            System.exit(0);
         }
+        System.exit(0);
     }
+}
 
 

@@ -17,7 +17,9 @@ public class Tax {
         int year = Integer.parseInt(tax[0]);
         String type = tax[1];
         int userGross = 0;
-        try{userGross = Integer.parseInt(tax[2]);}catch(Exception e){
+        try {
+            userGross = Integer.parseInt(tax[2]);
+        } catch (Exception e) {
             Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
@@ -44,8 +46,8 @@ public class Tax {
             }
         }
         /*---------------------------------------------------------------
-        *   Call TextBroker to look up tax bracket and return tax rate
-        *---------------------------------------------------------------*/
+         *   Call TextBroker to look up tax bracket and return tax rate
+         *---------------------------------------------------------------*/
         String filer = year + type + ".txt";
         File file = new File(
                 "src/textfiles/" + filer);
@@ -75,7 +77,7 @@ public class Tax {
                     double percentage = Double.parseDouble(l);
                     double taxes = userGross * percentage;
                     System.out.print(taxes);
-                }catch (Exception e){
+                } catch (Exception e) {
                     System.out.println(l);
                 }
             }

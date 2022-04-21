@@ -6,15 +6,14 @@
  *--------------------------------------------------------------------------------------
  @author Nathan Goehring
  @version 04/19/2022   CMSC 355
- * ***************************************************************************************/
+  * ***************************************************************************************/
 
 import java.io.*;
 
 
-
 public class SB {
     public static void main(String[] args) throws Exception {
-        if(args.length == 0){
+        if (args.length == 0) {
             Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
@@ -26,7 +25,7 @@ public class SB {
         String[] argsArray = new String[0];
         try {
             argsArray = args[0].split(",", 2);
-        }catch(Exception e){
+        } catch (Exception e) {
             Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
@@ -40,7 +39,7 @@ public class SB {
         File file = new File("src/textfiles/Service.txt");
         BufferedReader a = new BufferedReader(new FileReader(file));
         while ((line = a.readLine()) != null) {
-            String[] words = line.split(",",2);
+            String[] words = line.split(",", 2);
             if (argsArray[0].equals(words[0])) {
                 Process pb = new ProcessBuilder("java", words[1], argsArray[1]).start();
                 try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
