@@ -63,13 +63,7 @@ public class Tax {
             System.exit(0);
         }
         if (userGross <= 0) {
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
-            try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
-                String l;
-                while ((l = reader.readLine()) != null) {
-                    System.out.println(l);
-                }
-            }
+            System.out.println(0);
             System.exit(0);
         }
         String set = "TB" + "," + filer + "," + userGross + "," + "<=";
