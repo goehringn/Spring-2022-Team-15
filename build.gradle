@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'java-library'
 }
 
 group 'org.example'
@@ -20,7 +21,7 @@ test {
 }
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(16)
+        languageVersion.set(JavaLanguageVersion.of(16))
     }
 }
 application {
