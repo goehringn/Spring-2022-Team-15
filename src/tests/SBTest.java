@@ -34,7 +34,7 @@ class SBTest {
 
             l = reader.readLine();
         }
-        assertEquals("0", l);
+        assertEquals("Not Found", l);
     }
     @Test
     void SBtestTaxWrongFiling() throws Exception {
@@ -49,7 +49,7 @@ class SBTest {
     @Test
     void SBtestTrans() throws Exception {
         String l;
-        Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Trans,spanish,dog").start();
+        Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Translate,spanish,dog").start();
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
 
             l = reader.readLine();
@@ -59,7 +59,7 @@ class SBTest {
     @Test
     void SBtestTransWrongLangugae() throws Exception {
         String l;
-        Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Trans,spani,dog").start();
+        Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Translate,spani,dog").start();
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
 
             l = reader.readLine();
@@ -69,7 +69,7 @@ class SBTest {
     @Test
     void SBtestTransWrongWord() throws Exception {
         String l;
-        Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Trans,spanish,do").start();
+        Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Translate,spanish,do").start();
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
 
             l = reader.readLine();

@@ -18,20 +18,6 @@ import java.nio.file.Paths;
 public class Tax {
     public static void main(String[] args) throws Exception {
         /*--------------------------------------------------------------
-         *  Test to see if the command line has inputs
-         *--------------------------------------------------------------*/
-        if (args[0].equals("")) {
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
-            try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
-                String l;
-                while ((l = reader.readLine()) != null) {
-                    System.out.println(l);
-                }
-            }
-            System.exit(0);
-        }
-
-        /*--------------------------------------------------------------
          *  Parse through the command line to split the string of arrays by commas and set
          *  to variables; year, filing type, and user gross
          * --------------------------------------------------------------*/
@@ -52,21 +38,6 @@ public class Tax {
                 }
             }
             System.exit(0);
-        }
-
-        /*---------------------------------------------------------------
-         *  Make a service oriented call to throw an error when the tax year is not found
-         * (greater than 2021 & less than 2020)
-         *--------------------------------------------------------------*/
-        if (year < 2020 || year >2021) {
-            Process pb1 = new ProcessBuilder("java", "src/modules/Error.java", "903").start();
-            try (var reader = new BufferedReader(new InputStreamReader(pb1.getInputStream()))) {
-                String l;
-                while ((l = reader.readLine()) != null) {
-                    System.out.println(l);
-                }
-                System.exit(0);
-            }
         }
 
 
@@ -110,7 +81,7 @@ public class Tax {
         String set = "TB" + "," + filer + "," + userGross + "," + "<=";
         Process pb = new ProcessBuilder("java", "src/modules/SB.java", set).start();
         /*---------------------------------------------------------------
-         *  Read and store the tax bracket percentage in the char "l"
+         *  Read and store the tax bracket percentage in the string "l"
          *---------------------------------------------------------------*/
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
             String l;

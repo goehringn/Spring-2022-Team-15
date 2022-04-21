@@ -9,6 +9,7 @@
   * ***************************************************************************************/
 
 import java.io.*;
+import java.util.Arrays;
 
 
 public class SB {
@@ -25,6 +26,15 @@ public class SB {
                 }
             }
         }
+        /*-------------------------------------------------------------
+        // remove white space from input so no errors occur
+        *-------------------------------------------------------------*/
+        StringBuffer sb = new StringBuffer();
+        for(int i = 0; i < args.length; i++) {
+            sb.append(args[i]);
+        }
+        String str = sb.toString();
+        args[0] = str;
         /*-------------------------------------------------------------
         // Divide input up to get service and parmlist. If args cannot split at
         // comma we have an invalid input and error is thrown
