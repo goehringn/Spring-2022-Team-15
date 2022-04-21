@@ -75,7 +75,7 @@ class ErrorTest {
         assertEquals("Tax Year Not Found", line);
     }
     /*-------------------------------------------------------------
-    // test that "876" outputs "Filling Status Not Found" in English
+    // test that "876" outputs "Filing Status Not Found" in English
     *-------------------------------------------------------------*/
     @Test
     void testEng876() throws Exception {
