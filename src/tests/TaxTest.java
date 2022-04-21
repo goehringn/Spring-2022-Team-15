@@ -44,7 +44,7 @@ class TaxTest {
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
             l = reader.readLine();
         }
-        assertEquals("Invalid Entry", l);
+        assertEquals("Not Found", l);
     }
 
     //test that that the command line has an a valid year (less than 2020)

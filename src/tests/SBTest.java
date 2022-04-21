@@ -34,7 +34,7 @@ class SBTest {
 
             l = reader.readLine();
         }
-        assertEquals("Not Found", l);
+        assertEquals("0", l);
     }
     @Test
     void SBtestTaxWrongFiling() throws Exception {
@@ -79,7 +79,7 @@ class SBTest {
     @Test
     void SBtestError() throws Exception {
         String l;
-        Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
+        Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Error,404").start();
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
 
             l = reader.readLine();
@@ -87,14 +87,25 @@ class SBTest {
         assertEquals("Not Found", l);
     }
     @Test
-    void SBtestErrorWrongCode() throws Exception {
+    void SBtestTB() throws Exception {
         String l;
-        Process pb = new ProcessBuilder("java", "src/modules/Error.java", "0").start();
+        Process pb = new ProcessBuilder("java", "src/modules/TB.java", "spanish.txt,dog").start();
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
 
             l = reader.readLine();
         }
-        assertEquals("Not Found", l);
+        assertEquals("perro", l);
     }
+    @Test
+    void SBtestTBWrongWord() throws Exception {
+        String l;
+        Process pb = new ProcessBuilder("java", "src/modules/TB.java", "spanish.txt,do").start();
+        try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
+
+            l = reader.readLine();
+        }
+        assertEquals("Word Not Found", l);
+    }
+
 
 }
