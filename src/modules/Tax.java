@@ -9,10 +9,24 @@
   * ***************************************************************************************/
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 
 public class Tax {
     public static void main(String[] args) throws Exception {
+        if (args[0].equals("")) {
+            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
+            try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
+                String l;
+                while ((l = reader.readLine()) != null) {
+                    System.out.println(l);
+                }
+            }
+            System.exit(0);
+        }
+
         String[] tax = args[0].split(",");
         int year = Integer.parseInt(tax[0]);
         String type = tax[1];
@@ -49,12 +63,8 @@ public class Tax {
          *   Call TextBroker to look up tax bracket and return tax rate
          *---------------------------------------------------------------*/
         String filer = year + type + ".txt";
-        File file = new File(
-                "src/textfiles/" + filer);
-        BufferedReader a = null;
-        try {
-            a = new BufferedReader(new FileReader(file));
-        } catch (FileNotFoundException e) {
+        Path path = Paths.get("src/textfiles/" + filer);
+        if (!Files.exists(path)) {
             Process pb = new ProcessBuilder("java", "src/modules/Error.java", "903").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;

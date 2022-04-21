@@ -20,7 +20,6 @@ public class TB {
         if (b.length > 2) {
             if (b[2].equals("<=")) {
                 int userGross = Integer.parseInt(b[1]);
-                ;
                 while ((line = a.readLine()) != null) {
                     String[] words = line.split(",");
                     int incomeAmount = 0;
