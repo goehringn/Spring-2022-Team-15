@@ -35,6 +35,9 @@ public class Tax {
                 System.exit(0);
             }
         }
+        /*---------------------------------------------------------------
+        *   Call TextBroker to look up tax bracket and return tax rate
+        *---------------------------------------------------------------*/
         String filer = year + type + ".txt";
         String set = "TB" + "," + filer + "," + userGross + "," + "<=";
         Process pb = new ProcessBuilder("java", "src/modules/SB.java", set).start();
