@@ -14,10 +14,9 @@ import java.io.InputStreamReader;
 
 public class Trans {
     public static void main(String[] args) throws Exception {
-
         String[] Trans = args[0].split(",");
-        String language = Trans[0];
-        String convert = language + ".txt";
+        Trans[0] = Trans[0].toLowerCase();
+        String convert = Trans[0] + ".txt";
         String word = Trans[1];
 
         String set = "TB" + "," + convert + "," + word;

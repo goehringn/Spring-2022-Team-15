@@ -44,9 +44,13 @@ public class Tax {
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
             String l;
             while ((l = reader.readLine()) != null) {
-                double percentage = Double.parseDouble(l);
-                double taxes = userGross * percentage;
-                System.out.print(taxes);
+                try {
+                    double percentage = Double.parseDouble(l);
+                    double taxes = userGross * percentage;
+                    System.out.print(taxes);
+                }catch (Exception e){
+                    System.out.println(l);
+                }
             }
         }
     }
