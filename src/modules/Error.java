@@ -18,6 +18,9 @@ import java.util.*;
 
 public class Error {
     public static void main(String[] args) throws Exception {
+        /*-------------------------------------------------------------
+        // Read language file in Options.txt
+        *-------------------------------------------------------------*/
         File file = new File("src/textfiles/Option.txt");
         BufferedReader a = new BufferedReader(new FileReader(file));
         String line =  a.readLine();
