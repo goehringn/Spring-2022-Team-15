@@ -12,11 +12,22 @@ import java.io.*;
 
 public class TB {
     public static void main(String[] args) throws Exception {
+        /*-------------------------------------------------------------
+        // Divide input up based on commas
+        *-------------------------------------------------------------*/
         String[] b = args[0].split(",");
         String line;
+        /*-------------------------------------------------------------
+        // open file and get ready to read file
+        *-------------------------------------------------------------*/
         File file = new File(
                 "src/textfiles/" + b[0]);
         BufferedReader a = new BufferedReader(new FileReader(file));
+        /*-------------------------------------------------------------
+        // if array length is greater than 2 and <= is included then search
+        // through file until userGross is <= to incomeAmount found in file
+        // and return percentage tax user owes to Tax module
+        *-------------------------------------------------------------*/
         if (b.length > 2) {
             if (b[2].equals("<=")) {
                 int userGross = Integer.parseInt(b[1]);
@@ -31,6 +42,10 @@ public class TB {
                 }
             }
         }
+        /*-------------------------------------------------------------
+        // If not Tax then we read through file to find matching word or
+        // error code and print out translation of word or code
+        *-------------------------------------------------------------*/
         while ((line = a.readLine()) != null) {
             String[] words = line.split(",");
             if (words[0].equals(b[1])) {
@@ -38,20 +53,11 @@ public class TB {
                 System.exit(0);
             }
         }
-        line = a.readLine();
-        try {
-            Integer.parseInt(line);
-        } catch (Exception e) {
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "813").start();
-            try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
-                String l;
-                while ((l = reader.readLine()) != null) {
-                    System.out.println(l);
-                }
-            }
-            System.exit(0);
-        }
-        Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
+        /*-------------------------------------------------------------
+        // if nothing is found in file then we pass word not found error code
+        // to error module
+        *-------------------------------------------------------------*/
+        Process pb = new ProcessBuilder("java", "src/modules/Error.java", "813").start();
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
             String l;
             while ((l = reader.readLine()) != null) {
@@ -59,6 +65,7 @@ public class TB {
             }
         }
         System.exit(0);
+
     }
 }
 

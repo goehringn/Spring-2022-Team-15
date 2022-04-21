@@ -5,7 +5,7 @@
  Based on input, executes a certain module.
  *--------------------------------------------------------------------------------------
  @author Nathan Goehring
- @version 04/19/2022   CMSC 355
+ @version 04/21/2022   CMSC 355
   * ***************************************************************************************/
 
 import java.io.*;
@@ -13,6 +13,9 @@ import java.io.*;
 
 public class SB {
     public static void main(String[] args) throws Exception {
+        /*-------------------------------------------------------------
+        // if no input provided throw error
+        *-------------------------------------------------------------*/
         if (args.length == 0) {
             Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
@@ -22,6 +25,10 @@ public class SB {
                 }
             }
         }
+        /*-------------------------------------------------------------
+        // Divide input up to get service and parmlist. If args cannot split at
+        // comma we have an invalid input and error is thrown
+        *-------------------------------------------------------------*/
         String[] argsArray = new String[0];
         try {
             argsArray = args[0].split(",", 2);
@@ -35,6 +42,10 @@ public class SB {
             }
             System.exit(0);
         }
+        /*-------------------------------------------------------------
+        // Search through Service.txt file for service and then call
+        // service based on path included in file and pass parameters
+        *-------------------------------------------------------------*/
         String line;
         File file = new File("src/textfiles/Service.txt");
         BufferedReader a = new BufferedReader(new FileReader(file));
@@ -51,6 +62,9 @@ public class SB {
                 System.exit(0);
             }
         }
+        /*-------------------------------------------------------------
+        // Throw service not found error if service cannot be found in file
+        *-------------------------------------------------------------*/
         Process pb = new ProcessBuilder("java", "src/modules/Error.java", "703").start();
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
             String l;
