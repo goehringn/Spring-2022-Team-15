@@ -6,7 +6,7 @@
  *--------------------------------------------------------------------------------------
  @author Nathan Goehring
  @version 04/21/2022   CMSC 355
-  * ***************************************************************************************/
+ ****************************************************************************************/
 
 import java.io.*;
 import java.util.Arrays;
@@ -64,6 +64,9 @@ public class SB {
             String[] words = line.split(",", 2);
             if (argsArray[0].equals(words[0])) {
                 Process pb = new ProcessBuilder("java", words[1], argsArray[1]).start();
+                /*-------------------------------------------------------------
+                // return output of running services
+                *-------------------------------------------------------------*/
                 try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                     String l;
                     while ((l = reader.readLine()) != null) {
