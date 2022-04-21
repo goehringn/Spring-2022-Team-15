@@ -1,4 +1,4 @@
-Trans,src/modules/Trans.java
+Translate,src/modules/Translate.java
 Tax,src/modules/Tax.java
 Error,src/modules/Error.java
 TB,src/modules/TB.java

@@ -14,7 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class Trans {
+public class Translate {
     public static void main(String[] args) throws Exception {
         String[] Trans = args[0].split(",");
         Trans[0] = Trans[0].toLowerCase();

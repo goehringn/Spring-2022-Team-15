@@ -47,6 +47,7 @@ public class SB {
         // service based on path included in file and pass parameters
         *-------------------------------------------------------------*/
         String line;
+        argsArray[0] = argsArray[0].substring(0, 1).toUpperCase() + argsArray[0].substring(1);
         File file = new File("src/textfiles/Service.txt");
         BufferedReader a = new BufferedReader(new FileReader(file));
         while ((line = a.readLine()) != null) {
