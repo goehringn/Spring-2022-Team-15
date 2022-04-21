@@ -10,17 +10,17 @@
 
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Trans {
     public static void main(String[] args) throws Exception {
         String[] Trans = args[0].split(",");
         Trans[0] = Trans[0].toLowerCase();
         String convert = Trans[0] + ".txt";
-        File file = new File(
-                "src/textfiles/" + convert);
-        try {
-            BufferedReader a = new BufferedReader(new FileReader(file));
-        } catch (FileNotFoundException e) {
+        Path path = Paths.get("src/textfiles/" + convert);
+        if (!Files.exists(path)) {
             Process pb = new ProcessBuilder("java", "src/modules/Error.java", "805").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;

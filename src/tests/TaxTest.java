@@ -22,7 +22,7 @@ class TaxTest {
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
             line = reader.readLine();
         }
-        assertEquals("Not Found", line);
+        assertEquals("0", line);
     }
 
     //test that taxes to be paid when gross income is at the end of a tax bracket
