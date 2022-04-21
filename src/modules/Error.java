@@ -9,12 +9,6 @@
  ****************************************************************************************/
 
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.*;
-
-import java.io.*;
-import java.util.*;
 
 public class Error {
     public static void main(String[] args) throws Exception {
@@ -26,6 +20,7 @@ public class Error {
         String line =  a.readLine();
         line = line.replaceAll("\\s", "");
         String[] words = line.split(",",2);
+        String l;
         /*-------------------------------------------------------------
         // call SB using service-oriented call
         *-------------------------------------------------------------*/
@@ -34,7 +29,6 @@ public class Error {
         // read input from pb
         *-------------------------------------------------------------*/
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
-            String l;
             while ((l = reader.readLine()) != null) {
                 /*-------------------------------------------------------------
                 // print error message to user
