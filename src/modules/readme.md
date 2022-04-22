@@ -13,4 +13,8 @@ Do not open folder above Spring-2022-Team-15 as it will cause problems getting f
 - Translate,"spanish,dog"
 - Translate,"french,dog"
 
-- Example -> java src/modules/SB.java Tax,"2021,Single,100000"
+- Example -> java src/modules/SB.java Tax,"2021,Single,100000"  
+
+No quotes in the textfiles. Also 2 error codes are added,
+- 876,Filing Status Not Found
+- 890,Incorrect Input
