@@ -25,6 +25,7 @@ public class SB {
                     System.out.println(l);
                 }
             }
+            System.exit(0);
         }
         /*-------------------------------------------------------------
         // remove white space from input so no errors occur
