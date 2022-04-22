@@ -23,6 +23,17 @@ public class Translate {
         // and word to be translated
         *-------------------------------------------------------------*/
         String[] Trans = args[0].split(",");
+        if(Trans.length < 2){
+            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "890").start();
+            try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
+                String l;
+                while ((l = reader.readLine()) != null) {
+                    System.out.println(l);
+                }
+            }
+            System.exit(0);
+        }
+
         Trans[0] = Trans[0].toLowerCase();
         String convert = Trans[0] + ".txt";
 
@@ -35,10 +46,9 @@ public class Translate {
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
                 while ((l = reader.readLine()) != null) {
-                    // System.out.println(l);
+                    System.out.println(l);
                 }
             }
-            System.out.println("805");
             System.exit(0);
         }
 

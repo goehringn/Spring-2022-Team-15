@@ -22,10 +22,37 @@ public class Tax {
          *  to variables; year, filing type, and user gross
          * --------------------------------------------------------------*/
         String[] tax = args[0].split(",");
-        int year = Integer.parseInt(tax[0]);        // filing year
-        String type = tax[1];       // filing type
-        int userGross = Integer.parseInt(tax[2]);     // total gross income
-
+        if(tax.length < 3){
+            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "890").start();
+            try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
+                String l;
+                while ((l = reader.readLine()) != null) {
+                    System.out.println(l);
+                }
+            }
+            System.exit(0);
+        }
+        int userGross=0;
+        String type = null;
+        int year = 0;
+        /*---------------------------------------------------------------
+         *  try to interpret as int and if an exception is thrown, the
+         *  input is incorrect
+         *--------------------------------------------------------------*/
+        try {
+            year = Integer.parseInt(tax[0]);        // filing year
+            type = tax[1];       // filing type
+            userGross = Integer.parseInt(tax[2]);     // total gross income
+        }catch (Exception e){
+            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "890").start();
+            try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
+                String l;
+                while ((l = reader.readLine()) != null) {
+                    System.out.println(l);
+                }
+            }
+            System.exit(0);
+        }
         /*---------------------------------------------------------------
          *  Make a service oriented call to throw an error when the gross income is not found
          *--------------------------------------------------------------*/
