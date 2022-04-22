@@ -3,3 +3,5 @@
 805,Sprache Nicht Gefunden
 813,Wort Nicht Gefunden
 903,Steuerjahr Nicht Gefunden
+876,Anmeldestatus Nicht Gefunden
+890,Falsche Eingabe
