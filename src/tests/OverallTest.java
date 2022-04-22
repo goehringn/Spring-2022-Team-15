@@ -2,7 +2,7 @@
  OverallTest Class
  ***************************************************************************************
  Function:
- Tests Overall Program
+ Tests Overall Program for random input and other extreme cases
  *--------------------------------------------------------------------------------------
  @author Nathan Goehring
  @version 04/21/2022   CMSC 355
