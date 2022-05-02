@@ -18,7 +18,7 @@ public class SB {
         // if no input provided throw error
         *-------------------------------------------------------------*/
         if (args.length == 0) {
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "890").start();
+            Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Error,890").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
                 while ((l = reader.readLine()) != null) {
@@ -44,7 +44,7 @@ public class SB {
         try {
             argsArray = args[0].split(",", 2);
         } catch (Exception e) {
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
+            Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Error,404").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
                 while ((l = reader.readLine()) != null) {
@@ -54,7 +54,7 @@ public class SB {
             System.exit(0);
         }
         if(argsArray.length < 2){
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "890").start();
+            Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Error,890").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
                 while ((l = reader.readLine()) != null) {
@@ -90,7 +90,7 @@ public class SB {
         /*-------------------------------------------------------------
         // Throw service not found error if service cannot be found in file
         *-------------------------------------------------------------*/
-        Process pb = new ProcessBuilder("java", "src/modules/Error.java", "703").start();
+        Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Error,703").start();
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
             String l;
             while ((l = reader.readLine()) != null) {

@@ -57,7 +57,7 @@ public class TB {
         // if nothing is found in file then we pass word not found error code
         // to error module
         *-------------------------------------------------------------*/
-        Process pb = new ProcessBuilder("java", "src/modules/Error.java", "813").start();
+        Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Error,813").start();
         try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
             String l;
             while ((l = reader.readLine()) != null) {

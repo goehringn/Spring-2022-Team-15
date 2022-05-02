@@ -23,7 +23,7 @@ public class Tax {
          * --------------------------------------------------------------*/
         String[] tax = args[0].split(",");
         if(tax.length < 3){
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "890").start();
+            Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Error,890").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
                 while ((l = reader.readLine()) != null) {
@@ -44,7 +44,7 @@ public class Tax {
             type = tax[1];       // filing type
             userGross = Integer.parseInt(tax[2]);     // total gross income
         }catch (Exception e){
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "890").start();
+            Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Error,890").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
                 while ((l = reader.readLine()) != null) {
@@ -57,7 +57,7 @@ public class Tax {
          *  Make a service oriented call to throw an error when the gross income is not found
          *--------------------------------------------------------------*/
         if (userGross <= 0) {
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "404").start();
+            Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Error,404").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
                 while ((l = reader.readLine()) != null) {
@@ -77,7 +77,7 @@ public class Tax {
             case "Joint" -> type = "J";
             case "Head" -> type = "H";
             default -> {
-                Process pb = new ProcessBuilder("java", "src/modules/Error.java", "876").start();
+                Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Error,876").start();
                 try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                     String l;
                     while ((l = reader.readLine()) != null) {
@@ -96,7 +96,7 @@ public class Tax {
         String filer = year + type + ".txt";
         Path path = Paths.get("src/textfiles/" + filer);
         if (!Files.exists(path)) {
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "903").start();
+            Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Error,903").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
                 while ((l = reader.readLine()) != null) {

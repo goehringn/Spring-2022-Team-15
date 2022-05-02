@@ -24,7 +24,7 @@ public class Translate {
         *-------------------------------------------------------------*/
         String[] Trans = args[0].split(",");
         if(Trans.length < 2){
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "890").start();
+            Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Error,890").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
                 while ((l = reader.readLine()) != null) {
@@ -42,7 +42,7 @@ public class Translate {
         *-------------------------------------------------------------*/
         Path path = Paths.get("src/textfiles/" + convert);
         if (!Files.exists(path)) {
-            Process pb = new ProcessBuilder("java", "src/modules/Error.java", "805").start();
+            Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Error,805").start();
             try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
                 String l;
                 while ((l = reader.readLine()) != null) {
