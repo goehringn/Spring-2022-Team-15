@@ -5,7 +5,7 @@
  Retrieves information from text files for taxes, errors, or translations.
  *--------------------------------------------------------------------------------------
  @author Nathan Goehring
- @version 04/21/2022   CMSC 355
+ @version 05/02/2022   CMSC 355
  ****************************************************************************************/
 
 import java.io.*;

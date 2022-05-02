@@ -5,7 +5,7 @@
  Returns a translated version of a word based on the language specified by the user
  *--------------------------------------------------------------------------------------
  @author Mason Delane
- @version 04/13/2022   CMSC 355
+ @version 05/02/2022   CMSC 355
   * ***************************************************************************************/
 
 
