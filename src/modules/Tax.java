@@ -17,6 +17,16 @@ import java.nio.file.Paths;
 //  To Test: Java ./src/modules/Tax.java "2021,Single,100000,<="
 public class Tax {
     public static void main(String[] args) throws Exception {
+        if (args.length == 0) {
+            Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Error,890").start();
+            try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
+                String l;
+                while ((l = reader.readLine()) != null) {
+                    System.out.println(l);
+                }
+            }
+            System.exit(0);
+        }
         /*--------------------------------------------------------------
          *  Parse through the command line to split the string of arrays by commas and set
          *  to variables; year, filing type, and user gross

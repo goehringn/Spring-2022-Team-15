@@ -41,50 +41,52 @@ public class SB {
         // comma we have an invalid input and error is thrown
         *-------------------------------------------------------------*/
         String[] argsArray = new String[0];
-        try {
-            argsArray = args[0].split(",", 2);
-        } catch (Exception e) {
-            Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Error,404").start();
-            try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
-                String l;
-                while ((l = reader.readLine()) != null) {
-                    System.out.println(l);
-                }
-            }
-            System.exit(0);
-        }
+        argsArray = args[0].split(",", 2);
+
         if(argsArray.length < 2){
-            Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Error,890").start();
-            try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
-                String l;
-                while ((l = reader.readLine()) != null) {
-                    System.out.println(l);
+            String line;
+            File file = new File("src/textfiles/Service.txt");
+            BufferedReader a = new BufferedReader(new FileReader(file));
+            while ((line = a.readLine()) != null) {
+                String[] words = line.split(",", 2);
+                if (argsArray[0].equalsIgnoreCase(words[0])) {
+                    Process pb = new ProcessBuilder("java", words[1]).start();
+                /*-------------------------------------------------------------
+                // return output of running services
+                *-------------------------------------------------------------*/
+                    try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
+                        String l;
+                        while ((l = reader.readLine()) != null) {
+                            System.out.println(l);
+                        }
+                    }
+                    System.exit(0);
                 }
             }
-            System.exit(0);
         }
         /*-------------------------------------------------------------
         // Search through Service.txt file for service and then call
         // service based on path included in file and pass parameters
         *-------------------------------------------------------------*/
-        String line;
-        argsArray[0] = argsArray[0].substring(0, 1).toUpperCase() + argsArray[0].substring(1);
-        File file = new File("src/textfiles/Service.txt");
-        BufferedReader a = new BufferedReader(new FileReader(file));
-        while ((line = a.readLine()) != null) {
-            String[] words = line.split(",", 2);
-            if (argsArray[0].equals(words[0])) {
-                Process pb = new ProcessBuilder("java", words[1], argsArray[1]).start();
+        else {
+            String line;
+            File file = new File("src/textfiles/Service.txt");
+            BufferedReader a = new BufferedReader(new FileReader(file));
+            while ((line = a.readLine()) != null) {
+                String[] words = line.split(",", 2);
+                if (argsArray[0].equalsIgnoreCase(words[0])) {
+                    Process pb = new ProcessBuilder("java", words[1], argsArray[1]).start();
                 /*-------------------------------------------------------------
                 // return output of running services
                 *-------------------------------------------------------------*/
-                try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
-                    String l;
-                    while ((l = reader.readLine()) != null) {
-                        System.out.println(l);
+                    try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
+                        String l;
+                        while ((l = reader.readLine()) != null) {
+                            System.out.println(l);
+                        }
                     }
+                    System.exit(0);
                 }
-                System.exit(0);
             }
         }
         /*-------------------------------------------------------------

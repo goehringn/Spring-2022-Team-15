@@ -17,7 +17,16 @@ import java.nio.file.Paths;
 
 public class Translate {
     public static void main(String[] args) throws Exception {
-
+        if (args.length == 0) {
+            Process pb = new ProcessBuilder("java", "src/modules/SB.java", "Error,890").start();
+            try (var reader = new BufferedReader(new InputStreamReader(pb.getInputStream()))) {
+                String l;
+                while ((l = reader.readLine()) != null) {
+                    System.out.println(l);
+                }
+            }
+            System.exit(0);
+        }
         /*-------------------------------------------------------------
         // splitting input at the comma and separating language of translation
         // and word to be translated
